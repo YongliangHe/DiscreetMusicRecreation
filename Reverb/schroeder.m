@@ -1,5 +1,7 @@
-function schroeder(indir,D1,D2,D3,D4,D5,D6,a1,a2,a3,a4,a5,a6,OutputFileName)
-[xread,FS]=audioread(indir);
+function x_reverb_mono = schroeder(x,fs,D1,D2,D3,D4,D5,D6,a1,a2,a3,a4,a5,a6)
+xread = x;
+FS = fs;
+% [xread,FS]=audioread(indir);
 x=xread(:,1);       %读取单声道数据
 D1=round(D1*FS/1000);
 D2=round(D2*FS/1000);
@@ -27,13 +29,14 @@ y6=filter(HB6,HA6,x6);
 y=y6;               %2个串联的全通滤波器
 y=y/max(y);
 %z=[y,FS];
-audiowrite(OutputFileName,y,FS);
+x_reverb_mono = y;
+%audiowrite(OutputFileName,y,FS);
 %普通对话框  
-h=dialog('name','提示.','position',[500 500 200 70]);  
+%h=dialog('name','提示.','position',[500 500 200 70]);  
   
-uicontrol('parent',h,'style','text','string','处理完成！','position',[50 40 120 20],'fontsize',12);  
-uicontrol('parent',h,'style','pushbutton','position',...  
-   [80 10 50 20],'string','确定','callback','delete(gcbf)');  
+%uicontrol('parent',h,'style','text','string','处理完成！','position',[50 40 120 20],'fontsize',12);  
+%uicontrol('parent',h,'style','pushbutton','position',...  
+%   [80 10 50 20],'string','确定','callback','delete(gcbf)');  
 
 %sound(y/2,FS,NBITS);
 %[xread,FS,NBITS]=wavread('/Users/gyc/Documents/MATLAB/Reverberation/Reverberation/sax_example.wav')

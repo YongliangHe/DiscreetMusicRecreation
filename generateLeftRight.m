@@ -7,10 +7,10 @@ function x_generate = generateLeftRight(x_left, x_right, fs, length)
 assert(size(x_left, 2) <= 2);
 assert(size(x_right, 2) <= 2);
 
-if size(x_left, 2) == 1
+if size(x_left, 2) == 2
     x_left = x_left(:, 1);
 end
-if size(x_right, 2) == 1
+if size(x_right, 2) == 2
     x_right = x_right(:, 1);
 end
 

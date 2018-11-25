@@ -1,0 +1,24 @@
+clc; clear;
+
+addpath('./Reverb');
+filename = './recreation.wav';
+
+% 5 mins in total
+LEN = 300;
+DELAY = 6;
+GAIN = 0.75;
+
+[x_left, fs] = audioread('./samples/left.aif');
+[x_right, fs] = audioread('./samples/right.aif');
+x_generate = generateLeftRight(x_right, x_left, fs, fs*LEN);
+
+disp('adding reverberation...')
+x_reverb = audioReverb(x_generate, fs);
+
+disp('adding delay...')
+x_delay = audioDelay(x_reverb, fs, fs*DELAY, GAIN);
+
+disp('writing to audio file')
+x_delay = x_delay / max(abs(x_delay(:)));
+audiowrite(filename,x_delay,fs);
+disp('finished!')

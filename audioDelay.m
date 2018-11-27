@@ -12,4 +12,4 @@ for i = 1:delay_num
     x_delay(i*delay+1:i*delay+orig_len, :) = x_delay(i*delay+1:i*delay+orig_len, :) + (gain^i) * x;
 end
 
-sound(x_delay, fs);
+% sound(x_delay, fs);

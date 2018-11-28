@@ -4,12 +4,12 @@ addpath('./Reverb');
 filename = './recreation.wav';
 
 % 5 mins in total
-LEN = 20;
+LEN = 300;
 DELAY = 6;
 GAIN = 0.75;
 
-[x_left, fs] = audioread('./samples/Audio 1_05.L.wav');
-[x_right, fs] = audioread('./samples/Audio 1_05.R.wav');
+[x_left, fs] = audioread('./samples/L.wav');
+[x_right, fs] = audioread('./samples/R.wav');
 x_generate = generateLeftRight(x_right, x_left, fs, fs*LEN);
 
 disp('adding reverberation...')

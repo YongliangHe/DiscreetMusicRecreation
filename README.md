@@ -12,7 +12,7 @@
 	
 	e.g.: generate a 30-second long segment
 		
-		x_generate = generateLeftRight(x_left, x_right, fs, 30*fs);
+	x_generate = generateLeftRight(x_left, x_right, fs, 30*fs);
 
 3. Add Reverb:
 	
@@ -24,7 +24,7 @@
 	
 	e.g.: set delay to 6 seconds and set gain as 0.75
 		
-		x_delay = audioDelay(x_reverb, fs, 6*fs, 0.75);
+	x_delay = audioDelay(x_reverb, fs, 6*fs, 0.75);
 		
 5. Create Noise:
 	

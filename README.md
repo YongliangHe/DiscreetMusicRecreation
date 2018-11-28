@@ -13,5 +13,9 @@
 	x_delay = audioDelay(x_reverb, fs, delay, gain);
 	e.g.: set delay to 6 seconds and set gain as 0.75
 		x_delay = audioDelay(x_reverb, fs, 6*fs, 0.75);
-5. Listen to it!
-	sound(x_delay, fs);
+		
+5. Create Noise:
+	noise = randn(size(x_delay, 1), 2)/100;
+
+6. Listen to it!
+	sound(x_delay + noise, fs);
